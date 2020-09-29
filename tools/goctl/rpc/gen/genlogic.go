@@ -51,7 +51,8 @@ func (g *defaultRpcGenerator) genLogic() error {
 	service := g.ast.Service
 	for _, item := range service {
 		for _, method := range item.Funcs {
-			logicName := fmt.Sprintf("%slogic.go", method.Name.Lower())
+			// logicName := fmt.Sprintf("%slogic.go", method.Name.Lower())
+			logicName := fmt.Sprintf("%s.go", method.Name.ToSnake())
 			filename := filepath.Join(logicPath, logicName)
 			functions, err := genLogicFunction(protoPkg, method)
 			if err != nil {
@@ -91,3 +92,4 @@ func genLogicFunction(packageName string, method *parser.Func) (string, error) {
 	functions = append(functions, buffer.String())
 	return strings.Join(functions, "\n"), nil
 }
+

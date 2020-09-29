@@ -15,7 +15,7 @@ const (
 	dirPb              = "pb"
 	dirInternal        = "internal"
 	fileConfig         = "config.go"
-	fileServiceContext = "servicecontext.go"
+	fileServiceContext = "context.go"
 )
 
 type defaultRpcGenerator struct {

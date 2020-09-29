@@ -56,7 +56,7 @@ func (g *defaultRpcGenerator) genHandler() error {
 	}
 	head := util.GetHead(g.Ctx.ProtoSource)
 	for _, service := range file.Service {
-		filename := fmt.Sprintf("%vserver.go", service.Name.Lower())
+		filename := fmt.Sprintf("%v.go", service.Name.Lower())
 		serverFile := filepath.Join(serverPath, filename)
 		funcList, err := g.genFunctions(service)
 		if err != nil {
